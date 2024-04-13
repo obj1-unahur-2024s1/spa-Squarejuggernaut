@@ -1,0 +1,22 @@
+import spa.*
+import olivia.*
+import bruno.*
+import ramiro.*
+
+test "puede atender a olivia" {
+	spa.atender(olivia)
+	assert.equals(9, olivia.gradoDeConcentracion())
+}
+
+test "puede atender a bruno" {
+	spa.atender(bruno)
+	assert.that(bruno.esFeliz())
+	assert.equals(54500, bruno.peso())
+	assert.that(bruno.tieneSed())
+}
+
+test "puede atender a ramiro" {
+	spa.atender(ramiro)
+	assert.notThat(ramiro.tieneLaPielGrasosa())
+	assert.equals(0, ramiro.nivelDeContractura())
+}

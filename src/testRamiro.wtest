@@ -1,0 +1,37 @@
+import ramiro.*
+test "inicia con 0 de contractura y con la piel grasosa" {
+	assert.equals(0, ramiro.nivelDeContractura())
+	assert.that(ramiro.tieneLaPielGrasosa())
+}
+
+test "su nivel de contractura no puede ser menor a 0" {
+	ramiro.recibirMasajes()
+	assert.equals(0, ramiro.nivelDeContractura())
+}
+
+test "el banio de vapor le saca la grasa de la piel" {
+	ramiro.darBanioDeVapor()
+	assert.notThat(ramiro.tieneLaPielGrasosa())
+}
+
+test "comer un big mac le pone la piel grasosa" {
+	ramiro.comerBigMac()
+	assert.that(ramiro.tieneLaPielGrasosa())
+}
+
+test "bajar a la fosa le pone la piel grasosa y aumenta su contractura en 1" {
+	ramiro.bajarALaFosa()
+	assert.that(ramiro.tieneLaPielGrasosa())
+	assert.equals(1, ramiro.nivelDeContractura())
+}
+
+test "jugar al paddle aumenta su contractura en 3" {
+	ramiro.jugarAlPaddle()
+	assert.equals(3, ramiro.nivelDeContractura())
+}
+
+test "un dia de trabajo le pone la piel grasosa y aumenta su contractura en 2" {
+	ramiro.diaDeTrabajo()
+	assert.that(ramiro.tieneLaPielGrasosa())
+	assert.equals(2, ramiro.nivelDeContractura())
+}

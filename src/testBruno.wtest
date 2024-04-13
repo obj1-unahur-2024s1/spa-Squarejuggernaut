@@ -1,0 +1,47 @@
+import bruno.*
+
+test "inicia feliz, sin sed y con 55000 gramos de peso" {
+	assert.that(bruno.esFeliz())
+	assert.notThat(bruno.tieneSed())
+	assert.equals(55000, bruno.peso())
+}
+
+test "si esta infeliz una seccion de masajes lo pondra feliz" {
+	bruno.verNoticiero()
+	bruno.recibirMasajes()
+	assert.that(bruno.esFeliz())
+}
+
+test "un banio de vapor le dara sed y perdera 500 gramos de su peso" {
+	bruno.darBanioDeVapor()
+	assert.equals(54500, bruno.peso())
+	assert.that(bruno.tieneSed())
+}
+
+test "tomar agua le quita la sed" {
+	bruno.darBanioDeVapor()
+	bruno.tomarAgua()
+	assert.notThat(bruno.tieneSed())
+}
+
+test "comer fideos le da sed y le aumenta 250 gramos" {
+	bruno.comerFideos()
+	assert.equals(55250, bruno.peso())
+	assert.that(bruno.tieneSed())
+}
+
+test "al correr pierde 300 gramos" {
+	bruno.correr()
+	assert.equals(54700, bruno.peso())
+}
+
+test "ver el noticiero lo hace infeliz" {
+	bruno.verNoticiero()
+	assert.notThat(bruno.esFeliz())
+}
+
+test "estar perfecto significa estar feliz, no tener sed y pesar entre 50000 y 70000 gramos" {
+	assert.that(bruno.estaPerfecto())
+	bruno.verNoticiero()
+	assert.notThat(bruno.estaPerfecto())
+}

@@ -1,0 +1,26 @@
+import olivia.*
+
+test "Arranca con 6 puntos de concentracion" {
+	assert.equals(6, olivia.gradoDeConcentracion())
+}
+
+test "Al recibir masajes aumenta en 3 su nivel de concentracion" {
+	olivia.recibirMasajes()
+	assert.equals(9, olivia.gradoDeConcentracion())
+}
+
+test "Al discutir reduce en un punto su nivel de concentracion" {
+	olivia.discutir()
+	assert.equals(5, olivia.gradoDeConcentracion())
+}
+
+test "nunca puede tener menos de 0 su nivel de concentracion" {
+	olivia.discutir()
+	olivia.discutir()
+	olivia.discutir()
+	olivia.discutir()
+	olivia.discutir()
+	olivia.discutir()
+	olivia.discutir()
+	assert.equals(0, olivia.gradoDeConcentracion())
+}
